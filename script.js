@@ -101,6 +101,8 @@ const acronimo = (frase) => {
     return x.toUpperCase()
 }
 
+
+
 // ESERCIZI EXTRA DI RECAP JAVASCRIPT
 
 // 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
@@ -132,3 +134,62 @@ const string = "aaoaaoaaaaajjjdrwc";
 const mostUsed = piuUsato(string);
 console.log(`Il carattere più utilizzato é: ${mostUsed}`);
 
+
+// 2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra.
+// Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo.
+// Se le due parole sono anagrammi, ritorna true , altrimenti ritorna `false`.
+
+function anagrammi(string1, string2) {
+    const stringaPulita1 = string1.replace(/[^\w]/g, '').toLowerCase();
+    const stringaPulita2 = string2.replace(/[^\w]/g, '').toLowerCase();
+
+    if (stringaPulita1.length !== stringaPulita2.length) {
+        return false;
+    }
+
+    const arrayPulita1 = stringaPulita1.split('').sort().join('');
+    const arrayPulita2 = stringaPulita2.split('').sort().join('');
+
+    return arrayPulita1 === arrayPulita2;
+}
+
+// Esempio per vedere se funziona
+const parola1 = "enacoid"
+const parola2 = "dioporco"
+const anagramma = anagrammi(parola1, parola2);
+
+console.log(`Le parole sono anagrammi? ${anagramma}`);
+
+
+// 3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri),
+// ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
+
+function trovaAnagrammi(parola, listaAnagrammi) {
+    function stringaPulita(string) { // funzione per togliere punteggiatura e spazi
+        return string.replace(/[^\w]/g, '').toLowerCase();
+    }
+
+    function verificaAnagrammi(string1, string2) {
+        const stringaPulita1 = stringaPulita(string1)
+        const stringaPulita2 = stringaPulita(string2)
+
+        if (stringaPulita1.length !== stringaPulita2.length) {
+            return false;
+        }
+
+        const arrayPulita1 = stringaPulita1.split('').sort().join('');
+        const arrayPulita2 = stringaPulita2.split('').sort().join('');
+
+        return arrayPulita1 === arrayPulita2;
+    }
+
+    const anagrammiGiusti = listaAnagrammi.filter  (anagramma => verificaAnagrammi(parola, anagramma));
+
+    return anagrammiGiusti;
+}
+
+// Esempio per vedere se funziona
+const parolaCercata ="Aldo" // funziona anche con "vogianni"
+const possibiliAnagrammi = ["olda", "dola", "adlo", "lado", "giovanni", "giacomo"];
+const anagrammiTrovati = trovaAnagrammi(parolaCercata, possibiliAnagrammi);
+console.log(`Gli anagrammi corretti di ${parolaCercata} sono: ${anagrammiTrovati}`);
