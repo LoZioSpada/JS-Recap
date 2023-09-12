@@ -74,16 +74,16 @@ const no1or3 = (array) => {
 // Angolo piatto: 180° => ritorna "piatto"
 
 const angles = (deg) => {
-    if(deg < 90){
+    if (deg < 90) {
         return "acuto"
     }
-    if (deg > 90 && deg < 180){
+    if (deg > 90 && deg < 180) {
         return "ottuso"
     }
-    if(deg === 90){
+    if (deg === 90) {
         return "retto"
     }
-    if(deg === 180){
+    if (deg === 180) {
         return "piatto"
     }
 }
@@ -102,4 +102,33 @@ const acronimo = (frase) => {
 }
 
 // ESERCIZI EXTRA DI RECAP JAVASCRIPT
+
+// 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
+
+function piuUsato(string) {
+    const frequency = {};
+
+    for (let character of string) {
+        if (frequency[character]) {
+            frequency[character]++;
+        } else {
+            frequency[character] = 1
+        }
+    }
+    let maxCharacter = '';
+    let maxFrequency = 0;
+
+    for (let character in frequency) {
+        if (frequency[character] > maxFrequency) {
+            maxCharacter = character;
+            maxFrequency = frequency[character];
+        }
+    }
+    return maxCharacter;
+}
+
+// Esempio per vedere se funziona
+const string = "aaoaaoaaaaajjjdrwc";
+const mostUsed = piuUsato(string);
+console.log(`Il carattere più utilizzato é: ${mostUsed}`);
 
