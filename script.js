@@ -194,8 +194,8 @@ function anagrammi(string1, string2) {
 }
 
 // Esempio per vedere se funziona
-const parola1 = "enacoid"
-const parola2 = "dioporco"
+const parola1 = "notizia"
+const parola2 = "tiziano"
 const anagramma = anagrammi(parola1, parola2);
 
 console.log(`EXTRA 2. Le parole sono anagrammi? ${anagramma}`);
@@ -231,7 +231,7 @@ function trovaAnagrammi(parola, listaAnagrammi) {
 const parolaCercata = "cartine"
 const possibiliAnagrammi = ["carenti", "incerta", "espatrio"];
 const anagrammiTrovati = trovaAnagrammi(parolaCercata, possibiliAnagrammi);
-console.log(`EXTRA 3. Gli anagrammi corretti di ${parolaCercata} sono: ${anagrammiTrovati}`);
+console.log(`EXTRA 3. Gli anagrammi  di "${parolaCercata}" sono: ${anagrammiTrovati}`);
 
 
 // 4. Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è.
@@ -276,3 +276,44 @@ const scala = scaletta(d);
 
 
 // 7. Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario.
+function parolaContrario (parola){
+    return parola.split("").reverse().join("");
+}
+
+// Esempio per vedere se funziona
+const parola = "supercalifragilistichespiralidoso"
+const contrario = parolaContrario(parola);
+console.log(`EXTRA 7. La parola "${parola}" al contrario diventa: "${contrario}"`)
+
+
+// 8. Crea una funzione che accetti un array e un numero Y come parametro. Dividi l’array in sotto-array aventi lunghezza Y.
+function sottoArray (array, y){
+    let nuovoArray = []
+    let miniArray = 0
+    for (let i = 0; i < array.length; i++){
+        if(i % y === 0){
+            miniArray++;
+        }
+    }
+
+    console.log(miniArray);
+    let inizio = 0;
+
+    for (let x = 0; x < miniArray; x++){
+        let pezzo = array.slice(inizio, inizio + y);
+        inizio += y;
+
+        nuovoArray.push(pezzo);
+    }
+    return nuovoArray;
+}
+
+// Esempio per vedere se funziona
+console.log("EXTRA 8. " +  sottoArray([1, 2, 3, 4, 5], 3));
+
+
+// 9. Scrivi una funzione che accetti un numero positivo X come parametro.
+// La funzione dovrebbe stampare a console una “piramide” create con il carattere “#” e avente X strati
+const piramide = (x) => {
+
+}
