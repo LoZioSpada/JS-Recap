@@ -1,7 +1,7 @@
 // ESERCIZI DI RECAP JAVASCRIPT
 
 // 1. Crea una funzione che controlli due numeri.
-// Ritorna "True" se unno dei due numeri è 50 o se la somma dei due è 50.
+// Ritorna "True" se uno dei due numeri è 50 o se la somma dei due è 50.
 
 const sum = (a, b) => {
 
@@ -13,7 +13,14 @@ const sum = (a, b) => {
     }
 }
 
-// 2. Crea una funizione che rimuova il carattere ad una specifica posizione da una stringa.
+// Esempio per vedere se funziona
+const a = 10;
+const b = 30;
+const c = sum(a, b)
+console.log(`1. Uno dei due numeri o la loro somma è 50? Risposta: ${c}`);
+
+
+// 2. Crea una funzione che rimuova il carattere ad una specifica posizione da una stringa.
 // Passa la stringa e la posizione come parametri e ritorna la stringa modificata
 
 const removeCharacter = (string, position) => {
@@ -21,6 +28,13 @@ const removeCharacter = (string, position) => {
     array.splice(position, 1);
     return array.join("");
 }
+
+// Esempio per vedere se funziona
+const stringa = "Daje Roma Daje";
+const rimozione = 6;
+const rimosso = removeCharacter(stringa, rimozione);
+console.log("2. " + rimosso);
+
 
 // 3. Crea una funzione che controlli se due numeri siano compresi tra 40 e 60 o tra 70 e 100.
 // Ritorna 'true' se rispecchiano queste condizioni, altrimenti ritorna 'false'
@@ -33,16 +47,29 @@ const between = (a, b) => {
     }
 }
 
+// Esempio per vedere se funziona
+const num1 = 70;
+const num2 = 100;
+const controllo = between(num1, num2);
+console.log(`3. I due numeri sono compresi tra 40 e 60 o tra 70 e 100? Risposta: ${controllo}`)
+
+
 // 4. Crea una funzione che accetti un nome di città come parametro e ritorni
 // il nome stesso se inizia con "Los" o "New", altrimenti ritorni "false"
 
 const cityReview = (cityName) => {
-    if (city.startsWith("Los") || city.startsWith("New")) {
+    if (cityName.startsWith("Los") || cityName.startsWith("New")) {
         return cityName;
     } else {
         return false;
     }
 }
+
+// Esempio per vedere se funziona
+const nomeCitta = "Latina"
+const verificaCitta = cityReview(nomeCitta);
+console.log(`4. La città inizia con "Los" o con "New"? Risposta: ${verificaCitta}`);
+
 
 // 5. Crea una funzione che calcoli e ritorni la somma di tutti gli elementi di un array.
 // L'array deve essere passato come parametro
@@ -53,8 +80,14 @@ const sumElements = (array) => {
         const element = array[i];
         par += element
     }
-    return temp;
+    return par;
 }
+
+// Esempio per vedere se funziona
+const array = [1, 38, 58, 36, 69, 14]
+const sommaArray = sumElements(array)
+console.log(`5. La somma dell'array inserito è: ${sommaArray}`)
+
 
 // 6. Crea una funzione che controlli che un array NON contenga i numeri 1 o 3.
 // Se NON li contiene, ritorna "true", altrimenti ritorna "false"
@@ -66,6 +99,12 @@ const no1or3 = (array) => {
         return false;
     }
 }
+
+// Esempio per vedere se funziona
+const array1 = [5, 2, 6]    //Testato con 1 o 3 e il risultato è false
+const contr = no1or3(array1)
+console.log(`6. L'array NON contiene 1 o 3? Risposta: ${contr}`)
+
 
 // 7. Crea una funzione per trovare il tipo di un angolo i cui gradi sono passati come parametro.
 // Angolo acuto: meno di 90° => ritorna "acuto"
@@ -88,6 +127,12 @@ const angles = (deg) => {
     }
 }
 
+// Esempio per vedere se funziona
+const angolo = 180;     // testato per ogni tipo di angolo richiesto dalla consegna
+const verificaAngolo = angles(angolo);
+console.log(`7. L'angolo di ${angolo} gradi è un angolo ${verificaAngolo}`);
+
+
 // 8. Crea una funzione che crei un acronimo a partire da una frase.
 // Es. "Fabbrica Italiana Automobili Torino" deve ritornare "FIAT"
 
@@ -100,6 +145,11 @@ const acronimo = (frase) => {
     }
     return x.toUpperCase()
 }
+
+// Esempio per vedere se funziona
+const array2 = "senatus popolus quirities romani"
+const acronimoArray = acronimo(array2)
+console.log(`8. L'acronimo di ${array2} è: ${acronimoArray}`)
 
 
 
@@ -132,7 +182,7 @@ function piuUsato(string) {
 // Esempio per vedere se funziona
 const string = "aaoaaoaaaaajjjdrwc";
 const mostUsed = piuUsato(string);
-console.log(`Il carattere più utilizzato é: ${mostUsed}`);
+console.log(`EXTRA 1. Il carattere più utilizzato é: ${mostUsed}`);
 
 
 // 2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra.
@@ -158,7 +208,7 @@ const parola1 = "enacoid"
 const parola2 = "dioporco"
 const anagramma = anagrammi(parola1, parola2);
 
-console.log(`Le parole sono anagrammi? ${anagramma}`);
+console.log(`EXTRA 2. Le parole sono anagrammi? ${anagramma}`);
 
 
 // 3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri),
@@ -192,4 +242,7 @@ function trovaAnagrammi(parola, listaAnagrammi) {
 const parolaCercata ="Aldo" // funziona anche con "vogianni"
 const possibiliAnagrammi = ["olda", "dola", "adlo", "lado", "giovanni", "giacomo"];
 const anagrammiTrovati = trovaAnagrammi(parolaCercata, possibiliAnagrammi);
-console.log(`Gli anagrammi corretti di ${parolaCercata} sono: ${anagrammiTrovati}`);
+console.log(`EXTRA 3. Gli anagrammi corretti di ${parolaCercata} sono: ${anagrammiTrovati}`);
+
+
+// 4. 
