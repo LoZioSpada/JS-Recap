@@ -2,7 +2,6 @@
 
 // 1. Crea una funzione che controlli due numeri.
 // Ritorna "True" se uno dei due numeri è 50 o se la somma dei due è 50.
-
 const sum = (a, b) => {
 
     if (a === 50 || b === 50 || a + b === 50) {
@@ -22,7 +21,6 @@ console.log(`1. Uno dei due numeri o la loro somma è 50? Risposta: ${c}`);
 
 // 2. Crea una funzione che rimuova il carattere ad una specifica posizione da una stringa.
 // Passa la stringa e la posizione come parametri e ritorna la stringa modificata
-
 const removeCharacter = (string, position) => {
     let array = string.split("");
     array.splice(position, 1);
@@ -38,7 +36,6 @@ console.log("2. " + rimosso);
 
 // 3. Crea una funzione che controlli se due numeri siano compresi tra 40 e 60 o tra 70 e 100.
 // Ritorna 'true' se rispecchiano queste condizioni, altrimenti ritorna 'false'
-
 const between = (a, b) => {
     if (((a >= 40 && a <= 60) && (b >= 40 && b <= 60)) || ((a >= 70 && a <= 100) && (b >= 70 && b <= 100))) {
         return true;
@@ -56,7 +53,6 @@ console.log(`3. I due numeri sono compresi tra 40 e 60 o tra 70 e 100? Risposta:
 
 // 4. Crea una funzione che accetti un nome di città come parametro e ritorni
 // il nome stesso se inizia con "Los" o "New", altrimenti ritorni "false"
-
 const cityReview = (cityName) => {
     if (cityName.startsWith("Los") || cityName.startsWith("New")) {
         return cityName;
@@ -73,7 +69,6 @@ console.log(`4. La città inizia con "Los" o con "New"? Risposta: ${verificaCitt
 
 // 5. Crea una funzione che calcoli e ritorni la somma di tutti gli elementi di un array.
 // L'array deve essere passato come parametro
-
 const sumElements = (array) => {
     let par = 0;
     for (let i = 0; i < array.length; i++) {
@@ -91,7 +86,6 @@ console.log(`5. La somma dell'array inserito è: ${sommaArray}`)
 
 // 6. Crea una funzione che controlli che un array NON contenga i numeri 1 o 3.
 // Se NON li contiene, ritorna "true", altrimenti ritorna "false"
-
 const no1or3 = (array) => {
     if (!array.includes(1) && !array.includes(3)) {
         return true;
@@ -111,7 +105,6 @@ console.log(`6. L'array NON contiene 1 o 3? Risposta: ${contr}`)
 // Angolo ottuso: tra i 90° e i 180° => ritorna "ottuso"
 // Angolo retto: 90° => ritorna "retto"
 // Angolo piatto: 180° => ritorna "piatto"
-
 const angles = (deg) => {
     if (deg < 90) {
         return "acuto"
@@ -135,7 +128,6 @@ console.log(`7. L'angolo di ${angolo} gradi è un angolo ${verificaAngolo}`);
 
 // 8. Crea una funzione che crei un acronimo a partire da una frase.
 // Es. "Fabbrica Italiana Automobili Torino" deve ritornare "FIAT"
-
 const acronimo = (frase) => {
     let array = frase.split(' ');
     let x = "";
@@ -147,7 +139,7 @@ const acronimo = (frase) => {
 }
 
 // Esempio per vedere se funziona
-const array2 = "senatus popolus quirities romani"
+const array2 = "senatus popolus quirities romani"   // funziona sia tutto minuscolo, sia tutto maiuscolo, sia con la prima lettera di ogni parola mauiscola/minuscola
 const acronimoArray = acronimo(array2)
 console.log(`8. L'acronimo di ${array2} è: ${acronimoArray}`)
 
@@ -156,7 +148,6 @@ console.log(`8. L'acronimo di ${array2} è: ${acronimoArray}`)
 // ESERCIZI EXTRA DI RECAP JAVASCRIPT
 
 // 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
-
 function piuUsato(string) {
     const frequency = {};
 
@@ -188,7 +179,6 @@ console.log(`EXTRA 1. Il carattere più utilizzato é: ${mostUsed}`);
 // 2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra.
 // Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo.
 // Se le due parole sono anagrammi, ritorna true , altrimenti ritorna `false`.
-
 function anagrammi(string1, string2) {
     const stringaPulita1 = string1.replace(/[^\w]/g, '').toLowerCase();
     const stringaPulita2 = string2.replace(/[^\w]/g, '').toLowerCase();
@@ -213,7 +203,6 @@ console.log(`EXTRA 2. Le parole sono anagrammi? ${anagramma}`);
 
 // 3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri),
 // ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
-
 function trovaAnagrammi(parola, listaAnagrammi) {
     function stringaPulita(string) { // funzione per togliere punteggiatura e spazi
         return string.replace(/[^\w]/g, '').toLowerCase();
@@ -233,16 +222,39 @@ function trovaAnagrammi(parola, listaAnagrammi) {
         return arrayPulita1 === arrayPulita2;
     }
 
-    const anagrammiGiusti = listaAnagrammi.filter  (anagramma => verificaAnagrammi(parola, anagramma));
+    const anagrammiGiusti = listaAnagrammi.filter(anagramma => verificaAnagrammi(parola, anagramma));
 
     return anagrammiGiusti;
 }
 
 // Esempio per vedere se funziona
-const parolaCercata ="Aldo" // funziona anche con "vogianni"
-const possibiliAnagrammi = ["olda", "dola", "adlo", "lado", "giovanni", "giacomo"];
+const parolaCercata = "cartine"
+const possibiliAnagrammi = ["carenti", "incerta", "espatrio"];
 const anagrammiTrovati = trovaAnagrammi(parolaCercata, possibiliAnagrammi);
 console.log(`EXTRA 3. Gli anagrammi corretti di ${parolaCercata} sono: ${anagrammiTrovati}`);
 
 
-// 4. 
+// 4. Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è.
+function parolaPalindroma(string) {
+    return string.split("").reverse().join("") === string
+}
+
+// Esempio per vedere se funziona
+const str = "yamamay"   // testato con parole non palindrome e risulta false
+const palindroma = parolaPalindroma(str)
+console.log(`EXTRA 4. La parola ${str} è palindroma? Risposta: ${palindroma}`)
+
+
+// 5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario.
+function numeroInverso (numero) {
+    return Number(String(numero).split("").reverse().join(""));
+}
+
+// Esempio per vedere se funziona
+const numero = 1015;
+const inverso = numeroInverso(numero);
+console.log(`EXTRA 5. Il numero ${numero} all'inverso diventa: ${ inverso}`);
+
+
+// 6. Scrivi una funzione che accetti un numero positivo X come parametro.
+// La funzione dovrebbe stampare a console una “scala” creata con il carattere “#” e avente X scalini.
