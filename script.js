@@ -258,3 +258,21 @@ console.log(`EXTRA 5. Il numero ${numero} all'inverso diventa: ${ inverso}`);
 
 // 6. Scrivi una funzione che accetti un numero positivo X come parametro.
 // La funzione dovrebbe stampare a console una “scala” creata con il carattere “#” e avente X scalini.
+function scaletta (x) {
+    if (x < 0){
+        return false;
+    }
+
+    console.log("EXTRA 6.");
+
+    for (let i = 0; i <= x; i++){
+        console.log("#".repeat(i));
+    }
+}
+
+// Esempio per vedere se funziona
+const d = 5;
+const scala = scaletta(d);
+
+
+// 7. Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario.
