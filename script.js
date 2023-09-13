@@ -309,11 +309,14 @@ function sottoArray (array, y){
 }
 
 // Esempio per vedere se funziona
-console.log("EXTRA 8. " +  sottoArray([1, 2, 3, 4, 5], 3));
+console.log("EXTRA 8. ")
+console.log(sottoArray([1, 2, 3, 4, 5], 3));
 
 
 // 9. Scrivi una funzione che accetti un numero positivo X come parametro.
 // La funzione dovrebbe stampare a console una “piramide” create con il carattere “#” e avente X strati
 const piramide = (x) => {
+    // for (let i = 0; i <= x; i++) {
 
+    // }
 }
