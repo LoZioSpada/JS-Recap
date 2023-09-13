@@ -246,26 +246,26 @@ console.log(`EXTRA 4. La parola ${str} è palindroma? Risposta: ${palindroma}`)
 
 
 // 5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario.
-function numeroInverso (numero) {
+function numeroInverso(numero) {
     return Number(String(numero).split("").reverse().join(""));
 }
 
 // Esempio per vedere se funziona
 const numero = 1015;
 const inverso = numeroInverso(numero);
-console.log(`EXTRA 5. Il numero ${numero} all'inverso diventa: ${ inverso}`);
+console.log(`EXTRA 5. Il numero ${numero} all'inverso diventa: ${inverso}`);
 
 
 // 6. Scrivi una funzione che accetti un numero positivo X come parametro.
 // La funzione dovrebbe stampare a console una “scala” creata con il carattere “#” e avente X scalini.
-function scaletta (x) {
-    if (x < 0){
+function scaletta(x) {
+    if (x < 0) {
         return false;
     }
 
     console.log("EXTRA 6.");
 
-    for (let i = 0; i <= x; i++){
+    for (let i = 0; i <= x; i++) {
         console.log("#".repeat(i));
     }
 }
@@ -276,7 +276,7 @@ const scala = scaletta(d);
 
 
 // 7. Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario.
-function parolaContrario (parola){
+function parolaContrario(parola) {
     return parola.split("").reverse().join("");
 }
 
@@ -287,11 +287,11 @@ console.log(`EXTRA 7. La parola "${parola}" al contrario diventa: "${contrario}"
 
 
 // 8. Crea una funzione che accetti un array e un numero Y come parametro. Dividi l’array in sotto-array aventi lunghezza Y.
-function sottoArray (array, y){
+function sottoArray(array, y) {
     let nuovoArray = []
     let miniArray = 0
-    for (let i = 0; i < array.length; i++){
-        if(i % y === 0){
+    for (let i = 0; i < array.length; i++) {
+        if (i % y === 0) {
             miniArray++;
         }
     }
@@ -299,7 +299,7 @@ function sottoArray (array, y){
     console.log(miniArray);
     let inizio = 0;
 
-    for (let x = 0; x < miniArray; x++){
+    for (let x = 0; x < miniArray; x++) {
         let pezzo = array.slice(inizio, inizio + y);
         inizio += y;
 
@@ -316,7 +316,24 @@ console.log(sottoArray([1, 2, 3, 4, 5], 3));
 // 9. Scrivi una funzione che accetti un numero positivo X come parametro.
 // La funzione dovrebbe stampare a console una “piramide” create con il carattere “#” e avente X strati
 const piramide = (x) => {
-    // for (let i = 0; i <= x; i++) {
+    console.log("EXTRA 9.")
+    for (let i = 1; i <= x; i++) {
+        const totale = x + x - 1;
+        const rigoPieno = i + i - 1;
+        const spazioPerLato = totale - rigoPieno;
+        console.log(`${" ".repeat(spazioPerLato / 2) +
+            "#".repeat(rigoPieno) +
+            " ".repeat(spazioPerLato / 2)
+            }`)
+    }
+}
 
-    // }
+// Esempio per vedere se funziona
+const valore = 5;
+const pira = piramide(valore);
+
+
+// 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
+function matrice() {
+
 }
