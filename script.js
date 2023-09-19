@@ -334,6 +334,58 @@ const pira = piramide(valore);
 
 
 // 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
-function matrice() {
+function matriceSpirale(n) {
+    // Inizializza una matrice vuota di dimensione NxN
+    const matrice = new Array(n);
+    for (let i = 0; i < n; i++) {
+        matrice[i] = new Array(n);
+    }
 
+    let valore = 1; // Il valore da inserire nella matrice
+    let inizioRiga = 0;
+    let fineRiga = n - 1;
+    let inizioColonna = 0;
+    let fineColonna = n - 1;
+
+    while (inizioRiga <= fineRiga && inizioColonna <= fineColonna) {
+        // Riempie la parte superiore della matrice
+        for (let col = inizioColonna; col <= fineColonna; col++) {
+            matrice[inizioRiga][col] = valore;
+            valore++;
+        }
+        inizioRiga++;
+
+        // Riempie la parte destra della matrice
+        for (let riga = inizioRiga; riga <= fineRiga; riga++) {
+            matrice[riga][fineColonna] = valore;
+            valore++;
+        }
+        fineColonna--;
+
+        // Riempie la parte inferiore della matrice (se necessario)
+        if (inizioRiga <= fineRiga) {
+            for (let col = fineColonna; col >= inizioColonna; col--) {
+                matrice[fineRiga][col] = valore;
+                valore++;
+            }
+            fineRiga--;
+        }
+
+        // Riempie la parte sinistra della matrice (se necessario)
+        if (inizioColonna <= fineColonna) {
+            for (let riga = fineRiga; riga >= inizioRiga; riga--) {
+                matrice[riga][inizioColonna] = valore;
+                valore++;
+            }
+            inizioColonna++;
+        }
+    }
+
+    return matrice;
 }
+
+// Esempio per vedere se funziona
+const n = 5
+const matrice = matriceSpirale(n)
+console.log("EXTRA 10.")
+console.log(matrice)
